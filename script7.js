@@ -56,12 +56,14 @@ function load_setting(){
         localStorage.clear()
         console.log('storage corrupted')
     }
+    Config.disable_pinch_zoom = localStorage.getItem('disable_pinch_zoom') === 'true'
     for (var i=0; i<10; i++){
         document.getElementById('input'+(i+1)).value = Customized_key[i]
     }
     document.getElementById('input11').value = Config.das
     document.getElementById('input12').value = Config.arr
-
+    document.getElementById('input12.2').checked = Config.disable_pinch_zoom
+    applyPinchZoomSetting(Config.disable_pinch_zoom)
 }
 
 
@@ -84,11 +86,14 @@ function save_setting(){
     }
     
 
+    Config.disable_pinch_zoom = document.getElementById('input12.2').checked
     update_keybind()
 
+    localStorage.setItem('disable_pinch_zoom', Config.disable_pinch_zoom)
     localStorage.setItem('Customized_key',JSON.stringify(Customized_key))
     localStorage.setItem('das',Config.das)
     localStorage.setItem('arr',Config.arr)
+    applyPinchZoomSetting(Config.disable_pinch_zoom)
 }
 
 
@@ -346,6 +351,7 @@ function set_event_listener(){
     document.getElementById('input11').oninput = e=>{save_setting()}
     document.getElementById('input12').oninput = e=>{save_setting()}
     document.getElementById('input12.1').onchange = e=>{save_setting()}
+    document.getElementById('input12.2').onchange = e=>{save_setting()}
 
     const ua = navigator.userAgent;
     if (/(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(ua)) {

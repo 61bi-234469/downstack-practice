@@ -16,6 +16,24 @@ function closeSettings() {
     setting.classList.remove('open');
 }
 
+// Pinch zoom prevention
+var _pinchZoomHandler = function(e) {
+    if (e.touches.length >= 2) {
+        e.preventDefault();
+    }
+};
+var _pinchZoomEnabled = false;
+
+function applyPinchZoomSetting(disable) {
+    if (disable && !_pinchZoomEnabled) {
+        document.addEventListener('touchmove', _pinchZoomHandler, { passive: false });
+        _pinchZoomEnabled = true;
+    } else if (!disable && _pinchZoomEnabled) {
+        document.removeEventListener('touchmove', _pinchZoomHandler);
+        _pinchZoomEnabled = false;
+    }
+}
+
 function toggleOptions() {
     const gamemode = document.getElementById('gamemode');
     const game_button = document.getElementById('game_button');
