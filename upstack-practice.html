@@ -75,7 +75,6 @@
                 <p id="winning_requirement2"><br></p>
             </div>
 
-            <button class="game_button orange" onclick="retry(); board.focus()">Retry</button>
             <button class="game_button red" onclick="show_ans(); board.focus()">Show Answer</button>
 
         </div>
@@ -84,7 +83,8 @@
         </div>
 
         <div id="rightpanel" class="panel">
-            
+            <button class="game_button orange" onclick="retry(); board.focus()">Retry</button>
+
             <h2>Modes</h2>
             <button class="game_button cyan" onclick="play_3_quad_map(0); board.focus()">0-9 stack Practice</button>
             <button class="game_button cyan" onclick="play_3_quad_map(3); board.focus()">6-3 stack Practice</button>

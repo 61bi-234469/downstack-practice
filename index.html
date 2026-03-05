@@ -75,7 +75,6 @@
                 <p id="winning_requirement2">All Clear at the end</p>
             </div>
 
-            <button class="game_button orange" onclick="retry(); board.focus()">Retry</button>
             <button class="game_button red" onclick="show_ans(); board.focus()">Show Answer</button>
             <button id="hint_button" class="game_button green" onclick="show_hint(); board.focus()">Show Hint</button>
 
@@ -85,7 +84,8 @@
         </div>
 
         <div id="rightpanel" class="panel">
-            
+            <button class="game_button orange" onclick="retry(); board.focus()">Retry</button>
+
             <h2>Modes</h2>
             <button class="game_button blue" onclick="play_a_combopc_map(); board.focus()">Combo into PC</button>
             <button class="game_button blue" onclick="play_a_combo_map(); board.focus()">Combo</button>

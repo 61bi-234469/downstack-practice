@@ -103,7 +103,6 @@
                 <p id="winning_requirement2">All Clear</p>
             </div>
 
-            <button class="game_button orange" onclick="retry(); board.focus()">Retry</button>
             <button class="game_button green" onclick="pcfinder()">Get help from PC finder (At most 4 lines)</button>
             <button class="game_button green" onclick="sfinder()">Get help from S finder (Any number of line)</button>
 
@@ -113,7 +112,8 @@
         </div>
 
         <div id="rightpanel" class="panel">
-            
+            <button class="game_button orange" onclick="retry(); board.focus()">Retry</button>
+
             <h2>Modes</h2>
             <button class="game_button cyan" onclick="play_a_map(); board.focus()">Generate Map</button><br>
 
