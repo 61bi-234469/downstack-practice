@@ -302,6 +302,7 @@ button.game_button:focus{
 }
 #gamemode.open {
     display:block;
+    margin-bottom: 1rem;
 }
 #gamemode input {
     width: 2rem;
