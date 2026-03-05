@@ -27,9 +27,11 @@ var _pinchZoomEnabled = false;
 function applyPinchZoomSetting(disable) {
     if (disable && !_pinchZoomEnabled) {
         document.addEventListener('touchmove', _pinchZoomHandler, { passive: false });
+        document.documentElement.style.touchAction = 'pan-x pan-y';
         _pinchZoomEnabled = true;
     } else if (!disable && _pinchZoomEnabled) {
         document.removeEventListener('touchmove', _pinchZoomHandler);
+        document.documentElement.style.touchAction = '';
         _pinchZoomEnabled = false;
     }
 }
